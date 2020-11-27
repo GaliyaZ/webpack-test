@@ -1,0 +1,21 @@
+@import '~normalize.css';
+@import 'fonts.css';
+
+.container {
+  padding-top: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: darkslategray;
+  font-family: 'OpenSans', Verdana, sans-serif;
+}
+
+.img {
+  background-image: url(../assets/after.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: gray;
+  height: 600px;
+  width: auto;
+  margin: 0 auto;
+}
+
