@@ -1,4 +1,4 @@
-@import '~normalize.css';
+@import '~normalize.css'; /*~ means normalize is in node modules*/
 @import 'fonts.css';
 
 .container {
@@ -17,5 +17,9 @@
   height: 600px;
   width: auto;
   margin: 0 auto;
+}
+
+.code {
+  border: 3px solid #deb887;
 }
 
