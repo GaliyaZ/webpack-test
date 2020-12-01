@@ -2,12 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'), 
   mode: 'development',
   entry: {
-    main: path.resolve(__dirname, 'src', 'js', 'index.js'),// './index.js', //entry point
+    main: path.resolve(__dirname, 'src', 'index.js'),// './index.js', //entry point
     analytics: path.resolve(__dirname, 'src', 'js', 'analytics.js'),//'./analytics.js'
 },
   output: {
@@ -26,7 +27,7 @@ module.exports = {
       chunks: 'all'}
   },
   devServer: {
-    port: 4200
+    port: 3000
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -40,11 +41,14 @@ module.exports = {
           to: path.resolve(__dirname, 'dist')
         }
       ]}
+    ),
+    new MiniCssExtractPlugin(
+      {filename: '[name].[contenthash].css'}
     )
   ],
   module: {
     rules: [
-      {test: /\.css$/, use: ['style-loader', 'css-loader']},
+      {test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader']}, //['style-loader', 'css-loader']
       {test: /\.(png|jpg|svg|gif|webp)$/, use: ['file-loader']},
       {test: /\.(woff|woff2|ttf)$/, use: ['file-loader']},
       {test: /\.xml$/, use: ['xml-loader']},

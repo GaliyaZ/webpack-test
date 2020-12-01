@@ -1,9 +1,9 @@
 import Post from '@models/post';
-// import json from '../assets/json.json';
-import css from '../styles/styles.css';
-import myPicture from '@/assets/after.png';
-// import xml from '../assets/xml.xml'
-// import csv from '../assets/csv.csv'
+// import json from './assets/json.json';
+import css from './styles/styles.css';
+import myPicture from './assets/after.png';
+// import xml from './assets/xml.xml'
+// import csv from './assets/csv.csv'
 import * as $ from 'jquery'
 
 const post = new Post('Webpack post title', myPicture);
