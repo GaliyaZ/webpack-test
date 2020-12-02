@@ -57,7 +57,7 @@
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 	// Promise = chunk loading, 0 = chunk loaded
 /******/ 	var installedChunks = {
-/******/ 		"main": 0
+/******/ 		"analytics": 0
 /******/ 	};
 /******/
 /******/ 	var deferredModules = [];
@@ -148,58 +148,22 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./index.js","vendors~analytics~main"]);
+/******/ 	deferredModules.push(["./js/analytics.js","vendors~analytics"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/after.png":
-/*!**************************!*\
-  !*** ./assets/after.png ***!
-  \**************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"4e13b602c5e00229aae5c81f583fd9ed.png\");\n\n//# sourceURL=webpack:///./assets/after.png?");
-
-/***/ }),
-
-/***/ "./index.js":
-/*!******************!*\
-  !*** ./index.js ***!
-  \******************/
+/***/ "./js/analytics.js":
+/*!*************************!*\
+  !*** ./js/analytics.js ***!
+  \*************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _models_post__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @models/post */ \"./models/post.js\");\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/styles.css */ \"./styles/styles.css\");\n/* harmony import */ var _assets_after_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/after.png */ \"./assets/after.png\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);\n\r\n// import json from './assets/json.json';\r\n\r\n\r\n// import xml from './assets/xml.xml'\r\n// import csv from './assets/csv.csv'\r\n\r\n\r\nconst post = new _models_post__WEBPACK_IMPORTED_MODULE_0__[\"default\"]('Webpack post title', _assets_after_png__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_3__('pre').addClass('code').html(post.toString());\r\n\r\n//console.log('post to string: ', post.toString());\r\n// console.log('JSON: ', json);\r\n// console.log('XML: ', xml);\r\n// console.log('CSV: ', csv);\n\n//# sourceURL=webpack:///./index.js?");
-
-/***/ }),
-
-/***/ "./models/post.js":
-/*!************************!*\
-  !*** ./models/post.js ***!
-  \************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Post; });\nclass Post {\r\n  constructor(title, img) {\r\n    this.title = title;\r\n    this.img = img;\r\n    this.date = new Date();\r\n  }\r\n  toString() {\r\n    return JSON.stringify({\r\n      title: this.title,\r\n      date: this.date.toJSON(),\r\n      img: this.img\r\n    }, null, 2) //save spaces\r\n  }\r\n  get uppercaseTitle() {\r\n    return this.title.toUpperCase()\r\n  }\r\n}\n\n//# sourceURL=webpack:///./models/post.js?");
-
-/***/ }),
-
-/***/ "./styles/styles.css":
-/*!***************************!*\
-  !*** ./styles/styles.css ***!
-  \***************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./styles/styles.css?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nfunction createAnalytics() {\r\n  let counter = 0;\r\n  let Destroyed = false;\r\n\r\n  const listener = () => counter++;\r\n\r\n  jquery__WEBPACK_IMPORTED_MODULE_0__(document).on('click', listener);\r\n\r\n  return {\r\n    destroy() {\r\n      jquery__WEBPACK_IMPORTED_MODULE_0__(document).off('click', listener);\r\n      Destroyed = true;\r\n    },\r\n    getClics() {\r\n      if (Destroyed) {\r\n        return 'Analitics is destroyed! total clicks = ${counter}';\r\n      }\r\n      return counter;\r\n    }\r\n  }\r\n}\r\n\r\nwindow.analytics = createAnalytics();\r\n\n\n//# sourceURL=webpack:///./js/analytics.js?");
 
 /***/ })
 
