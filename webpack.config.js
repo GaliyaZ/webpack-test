@@ -90,6 +90,17 @@ module.exports = {
             },},
             'css-loader',
             'less-loader']},
+        {
+          test: /\.sass|scss$/, 
+          use: [{
+            loader: MiniCssExtractPlugin.loader, 
+            options: {
+              //hmr: process.env.NODE_ENV === 'development'
+              hmr: isDev, //hot module replacement only for development mode mode
+              reloadAll: true
+            },},
+            'css-loader',
+            'sass-loader']},
       {test: /\.(png|jpg|svg|gif|webp)$/, use: ['file-loader']},
       {test: /\.(woff|woff2|ttf)$/, use: ['file-loader']},
       {test: /\.xml$/, use: ['xml-loader']},
