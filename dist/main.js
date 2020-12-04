@@ -175,7 +175,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _models_post__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @models/post */ \"./models/post.js\");\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/styles.css */ \"./styles/styles.css\");\n/* harmony import */ var _assets_after_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/after.png */ \"./assets/after.png\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);\n\r\n// import json from './assets/json.json';\r\n\r\n\r\n// import xml from './assets/xml.xml'\r\n// import csv from './assets/csv.csv'\r\n\r\n\r\nconst post = new _models_post__WEBPACK_IMPORTED_MODULE_0__[\"default\"]('Webpack post title', _assets_after_png__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_3__('pre').addClass('code').html(post.toString());\r\n\r\n//console.log('post to string: ', post.toString());\r\n// console.log('JSON: ', json);\r\n// console.log('XML: ', xml);\r\n// console.log('CSV: ', csv);\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _models_post__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @models/post */ \"./models/post.js\");\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/styles.css */ \"./styles/styles.css\");\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_styles_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _styles_less_less__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/less.less */ \"./styles/less.less\");\n/* harmony import */ var _styles_less_less__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_less_less__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _assets_after_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/after.png */ \"./assets/after.png\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);\n\r\n// import json from './assets/json.json';\r\n\r\n\r\n\r\n// import xml from './assets/xml.xml'\r\n// import csv from './assets/csv.csv'\r\n\r\n\r\nconst post = new _models_post__WEBPACK_IMPORTED_MODULE_0__[\"default\"]('Webpack post title', _assets_after_png__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_4__('pre').addClass('code').html(post.toString());\r\n\r\n//console.log('post to string: ', post.toString());\r\n// console.log('JSON: ', json);\r\n// console.log('XML: ', xml);\r\n// console.log('CSV: ', csv);\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -191,15 +191,25 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./styles/less.less":
+/*!**************************!*\
+  !*** ./styles/less.less ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n    if(false) { var cssReload; }\n  \n\n//# sourceURL=webpack:///./styles/less.less?");
+
+/***/ }),
+
 /***/ "./styles/styles.css":
 /*!***************************!*\
   !*** ./styles/styles.css ***!
   \***************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./styles/styles.css?");
+eval("// extracted by mini-css-extract-plugin\n    if(false) { var cssReload; }\n  \n\n//# sourceURL=webpack:///./styles/styles.css?");
 
 /***/ })
 

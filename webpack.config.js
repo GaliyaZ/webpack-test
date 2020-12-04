@@ -3,6 +3,27 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCssAssetPlugin = require('optimize-css-assets-webpack-plugin');
+
+const isDev = process.env.NODE_ENV === 'development'; 
+const isProd = !isDev;
+const filename = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`;
+
+//console.log('is dev: ', isDev)
+const optimization = () => {
+  const config = {
+    splitChunks: {
+      chunks: 'all'}
+  };
+  if (isProd) {
+    config.minimizer = [
+      new OptimizeCssAssetPlugin(),
+      new TerserPlugin()
+    ]
+  }
+  return config;
+}
 
 module.exports = {
   context: path.resolve(__dirname, 'src'), 
@@ -12,7 +33,7 @@ module.exports = {
     analytics: path.resolve(__dirname, 'src', 'js', 'analytics.js'),//'./analytics.js'
 },
   output: {
-    filename: '[name].[contenthash].js', //webpack result
+    filename: filename('js'), //webpack result
     path: path.resolve(__dirname, 'dist') //result path (from current dir)
   },
   resolve: {
@@ -22,16 +43,17 @@ module.exports = {
       '@': path.resolve(__dirname, 'src')
     }
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'}
-  },
+  optimization: optimization(),
   devServer: {
-    port: 3000
+    port: 3000,
+    hot: isDev
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './index.html',
+      minify: {
+        collapseWhitespace: isProd
+      }
     }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
@@ -43,12 +65,31 @@ module.exports = {
       ]}
     ),
     new MiniCssExtractPlugin(
-      {filename: '[name].[contenthash].css'}
+      {filename: filename('css')}
     )
   ],
   module: {
-    rules: [
-      {test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader']}, //['style-loader', 'css-loader']
+    rules: [{
+      test: /\.css$/, 
+      use: [{
+        loader: MiniCssExtractPlugin.loader, 
+        options: {
+          //hmr: process.env.NODE_ENV === 'development'
+          hmr: isDev, //hot module replacement only for development mode mode
+          reloadAll: true
+        },},
+        'css-loader']}, //['style-loader', 'css-loader']
+        {
+          test: /\.less$/, 
+          use: [{
+            loader: MiniCssExtractPlugin.loader, 
+            options: {
+              //hmr: process.env.NODE_ENV === 'development'
+              hmr: isDev, //hot module replacement only for development mode mode
+              reloadAll: true
+            },},
+            'css-loader',
+            'less-loader']},
       {test: /\.(png|jpg|svg|gif|webp)$/, use: ['file-loader']},
       {test: /\.(woff|woff2|ttf)$/, use: ['file-loader']},
       {test: /\.xml$/, use: ['xml-loader']},

@@ -1,6 +1,7 @@
 import Post from '@models/post';
 // import json from './assets/json.json';
 import css from './styles/styles.css';
+import less from './styles/less.less';
 import myPicture from './assets/after.png';
 // import xml from './assets/xml.xml'
 // import csv from './assets/csv.csv'
