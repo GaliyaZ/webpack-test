@@ -16,28 +16,3 @@ $('pre').addClass('code').html(post.toString());
 // console.log('JSON: ', json);
 // console.log('XML: ', xml);
 // console.log('CSV: ', csv);
-
-
-document.addEventListener('DOMContentLoaded', function(){
-  const form = document.querySelector('.form');
-  form.addEventListener('submit', formSend);
-
-  async function formSend(e) {
-    e.preventDefault();
-
-    //let error = formValidate(form);
-    let formData = new FormData(form);
-    let response = await fetch('sendmail.php', {
-      method="GET",
-      body: formData
-    });
-  }
-  
-  // function formValidate(form) {
-  //   let error = 0;
-  //   let formReq = document.querySelectorAll('._req');
-  //   return error;
-  // }
-})
-
-
