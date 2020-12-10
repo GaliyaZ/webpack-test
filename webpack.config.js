@@ -29,7 +29,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src'), 
   mode: 'development',
   entry: {
-    main: path.resolve(__dirname, 'src', 'index.js'),// './index.js', //entry point
+    main: ['@babel/polyfill', path.resolve(__dirname, 'src', 'index.js')],// './index.js', //entry point
     analytics: path.resolve(__dirname, 'src', 'js', 'analytics.js'),//'./analytics.js'
 },
   output: {
@@ -104,7 +104,17 @@ module.exports = {
       {test: /\.(png|jpg|svg|gif|webp)$/, use: ['file-loader']},
       {test: /\.(woff|woff2|ttf)$/, use: ['file-loader']},
       {test: /\.xml$/, use: ['xml-loader']},
-      {test: /\.csv$/, use: ['csv-loader']}
+      {test: /\.csv$/, use: ['csv-loader']},
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
   ]
   }
 }

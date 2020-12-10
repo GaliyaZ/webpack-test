@@ -7,6 +7,7 @@ import myPicture from './assets/after.png';
 // import xml from './assets/xml.xml'
 // import csv from './assets/csv.csv'
 import * as $ from 'jquery'
+import './js/babel'
 
 const post = new Post('Webpack post title', myPicture);
 
